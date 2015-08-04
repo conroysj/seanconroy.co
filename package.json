@@ -1,0 +1,23 @@
+{
+  "name": "conroysj",
+  "version": "1.0.0",
+  "description": "portfolio site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conroysj/seanconroy.co.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/conroysj/seanconroy.co/issues"
+  },
+  "homepage": "https://github.com/conroysj/seanconroy.co",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-es6-transpiler": "^1.0.1"
+  }
+}
