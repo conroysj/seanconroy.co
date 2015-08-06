@@ -2,9 +2,10 @@
   "name": "conroysj",
   "version": "1.0.0",
   "description": "portfolio site",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -12,6 +13,9 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3"
+  },
   "bugs": {
     "url": "https://github.com/conroysj/seanconroy.co/issues"
   },
