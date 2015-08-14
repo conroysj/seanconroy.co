@@ -1,11 +1,12 @@
 'use strict';
-import component from "./components/navbar.js";
+
 import React from "react";
 import Router from "react-router";
+import Routes from "./components/Routes";
 
 window.React = React;
-// var headParams = new HeadParams();
 
-//Router.run(routes, Router.HistoryLocation);
+Router.run(Routes, Router.HistoryLocation, function(Handler) {
+  React.render(<Handler />, document.body);
+});
 
-document.body.appendChild(component());
