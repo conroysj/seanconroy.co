@@ -6,14 +6,15 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <header>
+        <header />
           <ul>
             <li>Test1</li>
             <li></li>
             <li></li>
           </ul>
+        </div>
       )
   }
 }
 
-exports default Home;
+export default Home;
