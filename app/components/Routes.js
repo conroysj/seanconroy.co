@@ -6,6 +6,7 @@ import Layout from './Layout';
 import Home from './Home';
 import Projects from './Projects';
 import About from './About';
+import NotFound from './NotFound';
 
 
 const Route = Router.Route;
@@ -19,8 +20,7 @@ const routes = (
     <Route name="about" path="/about" handler={About} />
 
     <DefaultRoute handler={Home} />
-
-    <NotFoundRoute name="not-found" path="/404" handler={NotFound} />
+  <NotFoundRoute handler={NotFound} />
   </Route>
   );
 

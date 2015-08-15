@@ -9,7 +9,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules|bower_components/, loader: 'babel-loader'},
+      { test: /\.jsx?$/, exclude: /node_modules|bower_components/, loader: 'babel-loader', sourceMap: true},
       { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]
   },
