@@ -1,6 +1,7 @@
 'use strict';
 import React from 'react';
 import Router from 'react-router';
+const Link = Router.Link;
 
 class Home extends React.Component {
   render() {
@@ -8,8 +9,8 @@ class Home extends React.Component {
       <div>
         <header />
         <ul>
-          <li>Test1</li>
-          <li></li>
+          <li><Link to="/projects">Projects</Link></li>
+          <li>Contact</li>
           <li></li>
         </ul>
       </div>
