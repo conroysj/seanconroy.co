@@ -1,50 +1,42 @@
-import express from "express";
-import React from "react";
+import express from 'express'
+import React from 'react'
 import createLocation from 'history/lib/createLocation'
 import { RoutingContext, match } from 'react-router'
-import routes from "../shared/routes.js";
-import path from "path";
-const app = express();
+import routes from '../shared/routes.js'
+import HTMLComponent from '../shared/components/HTML.js'
+import path from 'path'
+const app = express()
 
-// set up Jade
-app.set('views', './views');
+// set up jade templating engine
+app.set('views', '../../views');
 app.set('view engine', 'jade');
 
+app.use('/assets', express.static(path.join(__dirname, '../shared/stylesheets')));
 
 app.get('/*', function (req, res) {
-  // Router.run(routes, req.path, function(Root, state) {
-  //   let content = React.renderToString(<Handler />);
-  //   res.render('index', { content: content });
-  // });
-  let location = createLocation(req.url)
+
+  let location = createLocation(req.url) // sets location as url requested
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
     if (redirectLocation)
       res.redirect(301, redirectLocation.pathname + redirectLocation.search)
     else if (error)
-      res.send(500, error.message)
+      res.status(500).send(error.message)
     else if (renderProps == null)
-      res.send(404, 'Not found')
+      res.status(404).send('Not found')
     else
-      res.send(React.renderToString(<RoutingContext {...renderProps}/>))
+      res.status(200).send(React.renderToStaticMarkup(
+        <HTMLComponent markup={React.renderToString(<RoutingContext {...renderProps}/>)} />
+      ))
   })
-  //   routes, req.path, function(Root, state) {
-  //   let bodyElement = React.createFactory(Root)({
-  //     params: state.params
-  //   });
-
-  //   // Renders the wrapped component into an HTML string.
-  //   let html = React.renderToStaticMarkup(
-  //     <HtmlComponent markup={React.renderToString(bodyElement)} />
-  //   );
-
-  //   response.send(html);
-  // });
 });
 
   var server = app.listen(3000, function () {
+
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('Server listening at http://%s:%s', host, port);
+  console.log('Server listening at ', host, port);
 });
+
+

@@ -1,20 +1,20 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   devtool: 'inline-source-map',
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './src/client/entry',
+    'webpack/hot/dev-server',
+    './src/client/entry.js'
   ],
   output: {
-    path: __dirname + '/public/js/',
-    filename: 'app.js',
-    publicPath: 'http://localhost:8080/js/',
+    path: path.join(__dirname, 'build'),
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoErrorsPlugin()
   ],
   resolve: {
     extensions: ['', '.js']
